@@ -2,10 +2,10 @@
 body {
   height:100%; /*poss delete*/
   background-image:
-  url('images/barleft2.png'),
-  url('images/timeleft.png'),
-  url('images/barright2.png'),
-  url('images/waveright.png');
+  url('Images/Barleft2.png'),
+  url('Images/timeleft.png'),
+  url('Images/barright2.png'),
+  url('Images/waveright.png');
   background-position: left, left, right, right;
   background-repeat: repeat-y, repeat-y, repeat-y, repeat-y;
   background-attachment: fixed, scroll, fixed, scroll;
