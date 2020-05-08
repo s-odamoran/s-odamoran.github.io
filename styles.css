@@ -6,9 +6,11 @@ body {
   url('Images/timeleft.png'),
   url('Images/barright2.png'),
   url('Images/waveright.png');
-  background-position: left, left, right, right;
-  background-repeat: repeat-y, repeat-y, repeat-y, repeat-y;
-  background-attachment: fixed, scroll, fixed, scroll;
+
+
+  background-position: left, left, right, right, top;
+  background-repeat: repeat-y, repeat-y, repeat-y, repeat-y, no-repeat;
+  background-attachment: fixed, scroll, fixed, scroll, fixed;
   color: #000;
   background-color: #f4f4f4;
   transition: background-color 1s ease;
@@ -47,9 +49,9 @@ body {
 /* panel styles */
 .panel {
   /* min height incase content is higher than window height */
-  min-height: 90vh; /*was 100 before*/
-  width: 80vw;
+  min-height: 120vh; /*was 100 before*/
   display: flex;
+  width: 80vw;
   justify-content: space-around;
   align-items: center;
   font-family: sans-serif;
@@ -58,16 +60,19 @@ body {
   /* turn above on to see the edge of panels */
 }
 
-
-
-/*trying to get the image within the panel to resize for mobile */
-.image{
-  height:100%;
-  width:100%;
-  position:relative;
-  display:block;
-	margin:auto;
+/*Custom vh for the last panel to make the 'flexitime' sync properly when it loops*/
+#endpanel{
+  /* min height incase content is higher than window height */
+  min-height: 77vh; /*was 100 before*/
+  width: 80vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: sans-serif;
+  margin:auto;
 }
+
+
 
 /* colours */
 .color-current {
@@ -93,16 +98,6 @@ body {
     display: none;
     visibility: hidden;
 }
-
-/*Background images*/
-#content{
-    background-image: url('images/testbg.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100%;
-    width:100%;
-}
-
 
 
 
@@ -132,13 +127,24 @@ a {
 }
 
 
-.title{
-  max-height: 40vh;
-  max-width:40vw;
+.heroimg{
+  margin:auto;
+  max-width: 80vw;
 }
-
 .instructions{
   color: #343434;
   font-style: oblique;
   font-weight: bold;
+  margin:auto;
+  padding-top: 5%;
+}
+
+.desc{
+	text-align: left;
+  margin:auto;
+  padding-top:10%;
+}
+
+.title{
+  padding-top:0;
 }
