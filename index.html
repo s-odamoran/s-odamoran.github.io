@@ -1,184 +1,183 @@
-<!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>FlexiTime</title>
-        <meta name="description" content="temporality,acceleration,corona, time">
-        <meta name="viewport" content="width=device-width"><!--the browser will (probably) render the width of the page at the width of its own screen -->
-        <link rel="stylesheet" href="styles.css">
-        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="description" content="temporality,acceleration,corona,time,isolation" />
+        <meta name="viewport" content="width=device-width" />
 
-<!--This is colour change-->
-<script>
-$(window).scroll(function() {
+        <link rel="stylesheet" href="styles.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  // selectors
-  var $window = $(window),
-      $body = $('body'),
-      $panel = $('.panel');
-
-  // Change 33% earlier than scroll position so colour is there when you arrive.
-  var scroll = $window.scrollTop() + ($window.height() / 3);
-
-  $panel.each(function () {
-    var $this = $(this);
-
-    // if position is within range of this panel.
-    // So position of (position of top of div <= scroll position) && (position of bottom of div > scroll position).
-    // Remember we set the scroll to 33% earlier in scroll var.
-    if ($this.position().top <= scroll && $this.position().top + $this.height() > scroll) {
-
-      // Remove all classes on body with color-
-      $body.removeClass(function (index, css) {
-        return (css.match (/(^|\s)color-\S+/g) || []).join(' ');
-      });
-
-      // Add class of currently active div
-      $body.addClass('color-' + $(this).data('color'));
-    }
-  });
-
-}).scroll();
-
-</script>
-
-
-
-
-<script>
-//Joe's autoscroll//
-var speed=1
-var downspeed= 1
-var stopspeed= 0
-var currentpos=0
-var alt = 0
-var curpos1 = 100
-var curpos2 = 1
-var timeoutid = null
-function initialize(){
-startit()
-}
-function goup(e) {
-speed = stopspeed
-}
-function godown(e) {
-speed = downspeed
-}
-function scrollwindow(){
-if (document.all) {
- temp=document.body.scrollDown;
-}
-else {
- temp=window.pageYOffset;
-}
-if (alt==0) {
- alt=1;
- curpos2 = temp;
-}
-else {
- alt=0;
- curpos1 = temp;
-}
-if ((curpos1==curpos2) && (speed > 0)) {
- currentpos = 0;
- curpos1 = 100;
-}
-else {
- if (document.all) {
-  currentpos=document.body.scrollDown+speed;
- }
- else {
- currentpos=window.pageYOffset+speed;
- }
-}
-if (speed > 0) { window.scrollTo(0,currentpos); }
-timeoutid = setTimeout("scrollwindow()", 20);
-}
-function startit(){
-timeoutid = setTimeout("scrollwindow()", 20)
-}
-window.onload= initialize
-/*document.onmousedown = goup;*/
-/*Above is commented for buttons to work*/
-document.ondblclick = godown;
-
-
-
-    function stopscroll() {
-  clearTimeout(timeoutid)
-}
-
-</script>
-
-
-
+		<title>Flexitime</title>
     </head>
+    <body>
+
+		<button onclick="startit()" class="startbutton">Speed +</button>
+		<button onclick="stopscroll()" class="stopbutton">Speed -</button>
+		<div class="showcase">
+			<div class="bg">
+				<div class="panel" data-color="white" id="endpanel">
+					<div class="intro">
+						<div>
+							<img src="Images/Flexitime.png"/>
+						</div>
+            <br>
+						<p class="desc">
+This quarantine you can forget alarm clocks, 9 to 5's and packed commutes. This is Flexitime. Lie ins till late, Zoom meetings for lunch and Slack pings for dinner. Rolling news through the day and Netflix at night. Friends want to catch up? Hop on Houseparty and get social!<br> Just make sure to get a little sleep, because tomorrow, you’ll be doing it all over again.
+</p>
+						<br />
+						<p class="instructions">Use the &#39;Speed +/-&#39; buttons to control the flow. They can be pressed multiple times to go faster and slower.</p>
+					</div>
+				</div>
+			<!--'Time zones'-->
+
+				<div class="panel" data-color="current">
+					<img src="images/current/currentbg.png" />
+					<img src="images/current/currentbackimgs.png" />
+					<img src="images/current/currenttitle.png" />
+					<img src="images/current/currentfrontimgs.png" />
+				</div>
+				<div class="panel" data-color="content">
+					<img src="images/content/background.png" />
+					<img src="images/content/BackImages.png" />
+					<img src="images/content/type.png" />
+					<img src="images/content/NearImages.png" />
+				</div>
+				<div class="panel" data-color="work">
+					<img src="images/productive/productivebg.png" />
+					<img src="images/productive/productivetitle.png" />
+					<img src="images/productive/productivebackimgs.png" />
+					<img src="images/productive/productivefrontimgs.png" />
+				</div>
+				<div class="panel" data-color="active">
+					<img src="images/active/activebg.png" />
+					<img src="images/active/activebackimgs.png" />
+					<img src="images/active/activetitle.png" />
+					<img src="images/active/activefrontimgs.png" />
+				</div>
+				<div class="panel" data-color="connect">
+					<img src="images/social/bg.png" />
+					<img src="images/social/socialbackimgs.png" />
+					<img src="images/social/socialtitle.png" />
+					<img src="images/social/socialfrontimgs.png" />
+				</div>
+				<div class="panel" data-color="sleep">
+					<img src="images/sleep/sleepbg.png" />
+					<img src="images/sleep/sleepbackimgs.png" />
+					<img src="images/sleep/sleeptitle.png" />
+				</div>
 
 
 
-<body>
 
-<div class="panel" data-color="white">
-    <div class="title">
+      </div>
+		</div>
 
-      <img src="Images/Flexitime.png" class="heroimg"></img>
+		<script>
+			showcaseWindow = $('.showcase') ;
 
-      <button onclick="startit()" class="startbutton">Speed +</button><br>
-      <button onclick="stopscroll()" class="stopbutton">Speed -</button>
+			 $(showcaseWindow).scroll(function() {
 
+			  // selectors
+			  var showcaseWindow = $('.showcase'),
+				  body = $('body'),
+				  panel = $('.panel');
 
-      <p class='desc'>Remember regular time? Remember alarm clocks, 9 to 5's, packed commutes and long meetings? You don't need that anymore. This is <i>Flexitime</i>. Wake up whenever you want and go to bed whenever you have to. Zoom meetings for lunch and Slack pings for dinner. Rolling news through the day and Netflix at night. Friend wants to catch up? Be <i>flexible</i>. Hop on Skype and save yourself the time!  Because as the adage goes, time is money, and you don't have enough of either.
-      </p>
-      <br>  <p class="instructions">Use the 'Speed +/-' buttons to control your flow of time, they can be pressed more than once.</p>
-  </div>
-</div>
+			  // Change 33% earlier than scroll position so colour is there when you arrive.
+			  var scroll = $(showcaseWindow).scrollTop() / 8 + 200 ; // + ($(showcaseWindow).height() / 3);
 
-<!--'Time zones'-->
-<div class="panel" data-color="current"  > 
+			  panel.each(function () {
+				// if position is within range of this panel.
+				// So position of (position of top of div <= scroll position) && (position of bottom of div > scroll position).
+				// Remember we set the scroll to 33% earlier in scroll var.
+				if ($(this).offset().top <= scroll && $(this).offset().top + $(this).height() > scroll) {
 
-    <img src="Images/currentfull.png"/>
+				  // Remove all classes on body with color-
+				  $(body).removeClass(function (index, css) {
+					return (css.match (/(^|\s)color-\S+/g) || []).join(' ');
+				  });
 
-</div>
+				  // Add class of currently active div
+				  $(body).addClass('color-' + $(this).data('color'));
+				}
+			  });
 
-<div class="panel" data-color="content">
-
-  <img src="Images/contentfull.png">
-
-</div>
-
-<div class="panel" data-color="work">
-
-  <img src="Images/productivefull.png"/>
-
-</div>
-
-<div class="panel" data-color="active">
-
-  <img src="Images/activefull.png"/>
-
-</div>
-<div class="panel" data-color="connect">
-  <img src="Images/socialfull.png"/>
-</div>
-<div class="panel" data-color="sleep">
-<img src="Images/sleepfull.png"/>
-</div>
-<!-- Title panel repeated at the bottom to give the illusion of infinite srcoll-->
-<div class="panel" data-color="white" id="endpanel">
-    <div>
+			}).scroll();
+		</script>
 
 
-      <img src="Images/Flexitime.png" class="heroimg"></img>
+		<script>
 
 
+			//Joe's autoscroll//
+			var speed=1 ;
+			var downspeed= 1 ;
+			var stopspeed= 0 ;
+			var currentpos=0 ;
+			var alt = 0 ;
+			var curpos1 = 100 ;
+			var curpos2 = 1 ;
+			var timeoutid = null ;
+			var e = document.getElementsByClassName("showcase")[0];
 
-      <p class='desc'>Remember regular time? Remember alarm clocks, 9 to 5's, packed commutes and long meetings? You don't need that anymore. This is <i>Flexitime</i>. Wake up whenever you want and go to bed whenever you have to. Zoom meetings for lunch and Slack pings for dinner. Rolling news through the day and Netflix at night. Friend wants to catch up? Be <i>flexible</i>. Hop on Skype and save yourself the time!  Because as the adage goes, time is money, and you don't have enough of either.
-      </p>
-      <br>  <p class="instructions">Use the 'Speed +/-' buttons to control your flow of time, they can be pressed more than once.</p>
-  </div>
-</div>
+			function initialize(){
+				startit() ;
+			}
 
-</div>
+			function goup(e) {
+				speed = stopspeed ;
+			}
 
-</body>
+			function godown(e) {
+				speed = downspeed ;
+			}
+
+			function scrollwindow(){
+
+				//if (document.all) {
+					temp=e.scrollTop;
+				//} else {
+				//	temp=e.scrollTop;
+				//}
+				if (alt==0) {
+					alt=1;
+					curpos2 = temp;
+				} else {
+					alt=0;
+					curpos1 = temp;
+				}
+
+				if ((curpos1==curpos2) && (speed > 0)) {
+					currentpos = 0;
+					curpos1 = 100;
+				} else {
+					//if (document.all) {
+						currentpos=e.scrollTop+speed;
+					//} else {
+					//	currentpos=e.scrollTop+speed;
+					//}
+				}
+
+				if (speed > 0) { e.scroll(0,currentpos); }
+				timeoutid = setTimeout("scrollwindow()", 20);
+			}
+
+			function startit(){
+				timeoutid = setTimeout("scrollwindow()", 20) ;
+			}
+
+      /*window.onload= initialize*/
+      /*Above makes page autoscroll on page load*/
+
+			/*document.onmousedown = goup;*/
+			/*Above is commented for buttons to work*/
+			document.ondblclick = godown;
+
+			function stopscroll() {
+			  clearTimeout(timeoutid) ;
+			}
+		</script>
+
+	</body>
+
+</html>

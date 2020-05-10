@@ -1,19 +1,16 @@
 /* Setting fade transition and default settings */
 body {
-  height:100%; /*poss delete*/
-  background-image:
-  url('Images/Barleft2.png'),
-  url('Images/timeleft.png'),
-  url('Images/barright2.png'),
-  url('Images/waveright.png');
-
-
-  background-position: left, left, right, right, top;
-  background-repeat: repeat-y, repeat-y, repeat-y, repeat-y, no-repeat;
-  background-attachment: fixed, scroll, fixed, scroll, fixed;
-  color: #000;
-  background-color: #f4f4f4;
-  transition: background-color 1s ease;
+	height: 100vh;
+    color: #000;
+    background-color: #f4f4f4;
+    transition: background-color 1s ease;
+    text-align: center;
+    font-size: 120%;
+    line-height: 1.618;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 .startbutton{
@@ -48,31 +45,205 @@ body {
 
 /* panel styles */
 .panel {
-  /* min height incase content is higher than window height */
-  min-height: 120vh; /*was 100 before*/
-  display: flex;
-  width: 80vw;
-  justify-content: space-around;
-  align-items: center;
-  font-family: sans-serif;
-  margin:auto;
-  /* outline: 10px solid hotpink;*/
-  /* turn above on to see the edge of panels */
+	min-height: 88vw;
+    width: 80vw;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    /*outline: 10px solid hotpink;*/
 }
 
-/*Custom vh for the last panel to make the 'flexitime' sync properly when it loops*/
-#endpanel{
-  /* min height incase content is higher than window height */
-  min-height: 77vh; /*was 100 before*/
-  width: 80vw;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  font-family: sans-serif;
-  margin:auto;
+.panel > div.intro {
+	margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+		padding-top: 20vh;
+}
+
+div.showcase {
+	position: relative;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	perspective: 2px;
+	height: 100vh;
+}
+
+/** Exists to fix a real headache with the fixed/scrolling background disappearing
+off-screen to the right if the bg is defined in the .showcase div
+(and the body bg will never scroll at all...) **/
+div.bg {
+	background: url('Images/barleft2.png') left repeat-y fixed,
+		url('Images/timeleft.png') left repeat-y local,
+		url('Images/barright2.png') right repeat-y fixed,
+		url('Images/waveright.png') right repeat-y local ;
+    width: 100vw ;
+    padding-bottom: 40vw;
+}
+
+.panel > img {
+	max-width:100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	/*transform: translateZ(-1px) scale(1.5);	*/
+
 }
 
 
+
+/** Standard layering **/
+.panel > img:first-of-type {
+    transform: translateZ(-1.4px) scale(1.9);
+	margin:auto;
+}
+
+.panel > img:nth-of-type(2) {
+	transform: translateZ(-1.2px) scale(1.5);
+	margin:auto;
+}
+
+.panel > img:nth-of-type(3) {
+	transform: translateZ(-1px) scale(1.23);
+	margin:auto;
+}
+
+.panel > img:nth-of-type(4) {
+	transform: translateZ(-0.8px) scale(1.6);
+	margin:auto;
+}
+
+
+/****
+** Here are the adjustments per panel necessary when images are of different sizes/positions
+******/
+
+/**
+ CURRENT
+**/
+.panel[data-color="current"] > img:first-of-type {
+	width: 60vw;
+    top: 0;
+}
+.panel[data-color="current"] > img:nth-of-type(2) {
+    top: 4vw;
+    left: 9vw;
+    width: 74vw;
+}
+.panel[data-color="current"] > img:nth-of-type(3) {
+    top: 8vw;
+    width: 42vw;
+}
+.panel[data-color="current"] > img:nth-of-type(4) {
+    top: 10vw;
+    width: 67vw;
+    left: -7vw;
+}
+
+/**
+ CONTENT
+**/
+.panel[data-color="content"] > img:first-of-type {
+	width: 63vw;
+}
+.panel[data-color="content"] > img:nth-of-type(2) {
+    top: -44vw;
+    left: 7vw;
+}
+.panel[data-color="content"] > img:nth-of-type(3) {
+    top: -2vw;
+    left: 1vw;
+    width: 72vw;
+}
+.panel[data-color="content"] > img:nth-of-type(4) {
+    top: 15vw;
+    width: 74vw;
+}
+
+/**
+ WORK/PRODUCTIVE
+**/
+.panel[data-color="work"] > img:first-of-type {
+	width: 50vw;
+}
+.panel[data-color="work"] > img:nth-of-type(2) {
+    top: 0;
+    left: 0;
+    transform: translateZ(-1.2px) scale(2.1); /* needed for this one */
+}
+.panel[data-color="work"] > img:nth-of-type(3) {
+    top: 0%;
+    left: -9vw;
+    width: 70vw;
+}
+.panel[data-color="work"] > img:nth-of-type(4) {
+    top: 5vw;
+    width: 61vw;
+}
+
+/**
+ ACTIVE
+**/
+.panel[data-color="active"] > img:first-of-type {
+	width: 69vw;
+}
+.panel[data-color="active"] > img:nth-of-type(2) {
+    top: 4vw;
+    left: 0vw;
+    width: 81vw;
+    max-width: 81vw;
+}
+.panel[data-color="active"] > img:nth-of-type(3) {
+    top: 8vw;
+    left: 1vw;
+    width: 88vw;
+    max-width: 88vw;
+}
+.panel[data-color="active"] > img:nth-of-type(4) {
+	top: 18vw;
+    width: 73vw;
+}
+
+/**
+ SOCIAL
+**/
+.panel[data-color="connect"] > img:first-of-type {
+	width: 68vw;
+}
+.panel[data-color="connect"] > img:nth-of-type(2) {
+    top: 12vw;
+    left: -6vw;
+    width: 82vw;
+    max-width: 82vw;
+}
+.panel[data-color="connect"] > img:nth-of-type(3) {
+	top: 1vw;
+    left: 4vw;
+    width: 50vw;
+}
+.panel[data-color="connect"] > img:nth-of-type(4) {
+    top: 4vw;
+    width: 68vw;
+}
+
+/**
+ SLEEP
+**/
+.panel[data-color="sleep"] > img:first-of-type {
+	width: 45vw;
+}
+.panel[data-color="sleep"] > img:nth-of-type(2) {
+    top: -64vw;
+    left: -87vw;
+    width: 13vw;
+}
+.panel[data-color="sleep"] > img:nth-of-type(3) {
+    top: 1vw;
+    width: 25vw;
+}
 
 /* colours */
 .color-current {
@@ -94,22 +265,7 @@ body {
   background-color: #100b1d;
 }
 
-.invisible {   /* For the white at the bottom of the page*/
-    display: none;
-    visibility: hidden;
-}
 
-
-
-
-
-
-
-body {
-  text-align: center;
-  font-size: 120%;
-  line-height: 1.618;
-}
 
 
 h1, h2 {
@@ -122,29 +278,26 @@ p {
   margin-bottom: 1.618em;
 }
 
-a {
-  color: #4332CF;
-}
 
 
-.heroimg{
-  margin:auto;
-  max-width: 80vw;
-}
 .instructions{
   color: #343434;
   font-style: oblique;
   font-weight: bold;
-  margin:auto;
-  padding-top: 5%;
+	font-family: sans-serif;
+	font-size: 1em;
 }
 
 .desc{
 	text-align: left;
-  margin:auto;
-  padding-top:10%;
+	font-family: sans-serif;
 }
 
-.title{
-  padding-top:0;
+#endpanel { /*For making the title panel shorter than the rest*/
+	min-height: 80vw;
+    width: 70vw;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    /*outline: 10px solid hotpink;*/
 }
