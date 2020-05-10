@@ -75,7 +75,7 @@ off-screen to the right if the bg is defined in the .showcase div
 (and the body bg will never scroll at all...) **/
 div.bg {
 	background:
-	  url('Images/barleft2.png') left repeat-y fixed,
+	  url('Images/Barleft2.png') left repeat-y fixed,
 		url('Images/timeleft.png') left repeat-y local,
 		url('Images/barright2.png') right repeat-y fixed,
 		url('Images/waveright.png') right repeat-y local ;
