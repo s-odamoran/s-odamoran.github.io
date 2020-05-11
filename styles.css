@@ -301,10 +301,11 @@ p {
 .desc{
 	text-align: left;
 	font-family: sans-serif;
+	padding-top: 10vh;
 }
 
 #endpanel { /*For making the title panel shorter than the rest*/
-	min-height: 80vw;
+	min-height: 100vh;
     width: 70vw;
     margin: auto;
     text-align: center;
