@@ -95,13 +95,13 @@ div.bg {
 }
 
 /*parallax for the hero img*/
-/*
+
 .panel .intro div > img {
 	transform: translateZ(0.24px) scale(0.8);
     top: 3em;
     position: relative;
 	max-width:105vw;
-}*/
+}
 
 
 
