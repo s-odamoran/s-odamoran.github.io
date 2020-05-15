@@ -67,23 +67,29 @@
 					<img src="Images/Productive/productivefrontimgs.png" />
 				</div>
       </a>
+  <a href="javascript:activeLink()" id="cursor">
 				<div class="panel" data-color="active">
 					<img src="Images/Active/activebg.png" />
 					<img src="Images/Active/activebackimgs.png" />
 					<img src="Images/Active/activetitle.png" />
 					<img src="Images/Active/activefrontimgs.png" />
 				</div>
+      </a>
+  <a href="javascript:socialLink()" id="cursor">
 				<div class="panel" data-color="connect">
 					<img src="Images/Social/bg.png" />
 					<img src="Images/Social/socialbackimgs.png" />
 					<img src="Images/Social/socialtitle.png" />
 					<img src="Images/Social/socialfrontimgs.png" />
 				</div>
+      </a>
+  <a href="javascript:sleepLink()" id="cursor">
 				<div class="panel" data-color="sleep">
 					<img src="Images/Sleep/sleepbg.png" />
 					<img src="Images/Sleep/sleepbackimgs.png" />
 					<img src="Images/Sleep/sleeptitle.png" />
 				</div>
+      </a>
 
 
       </div>
@@ -377,7 +383,11 @@ Etiam bibendum tempus mi in vehicula. Vivamus sagittis erat ut sapien venenatis,
                            "google.com/search?q=best+shows+on+netflix",
                            "waifu.lofiu.com",
                            "artbreeder.com",
-                           "google.com/search?q=How+much+longer+will+lockdown+be" ]
+                           "google.com/search?q=How+much+longer+will+lockdown+be",
+                           "nts.live",
+                           "rinse.fm",
+                           "deliveroo.com"
+                          ]
 
               // get a random number between 0 and the number of links
               var randIdx = Math.random() * links.length;
@@ -413,11 +423,10 @@ Etiam bibendum tempus mi in vehicula. Vivamus sagittis erat ut sapien venenatis,
                           "gov.uk/jobseekers-allowance",
                           "gov.uk/universal-credit",
                           "google.com/search?q=am+i+entitled+to+furlough+pay?",
-                          "s-odamoran.github.io/break2.html",
+                          "s-odamoran.github.io/anotherbreak.html",
                           "tetris.com/play-tetris",
                           "en.wikipedia.org/wiki/Main_Page",
                           "github.com",
-                          "instagram.com",
                           "google.com/search?q=website+time+limiter",
                           "w3schools.com",
                           "lynda.com",
@@ -441,7 +450,10 @@ Etiam bibendum tempus mi in vehicula. Vivamus sagittis erat ut sapien venenatis,
                           "dropbox.com",
                           "skillshare.com",
                           "duolingo.com",
-                          "turbosquid.com"
+                          "turbosquid.com",
+                          "s-odamoran.github.io/morebreaks.html",
+                          "deliveroo.com",
+                          "just-eat.com"
                           ]
 
               // get a random number between 0 and the number of links
@@ -457,9 +469,109 @@ Etiam bibendum tempus mi in vehicula. Vivamus sagittis erat ut sapien venenatis,
     };
 </script>
 
+<script>
+//Random Links for 'Social'//
+
+           var socialLink = function() {
+
+             var links = [
+                          "discord.com",
+                          "youtube.com/watch?v=w15oWDh02K4",
+                          "web.whatsapp.com",
+                          "houseparty.com",
+                          "zoom.us",
+                          "facebook.com",
+                          "messenger.com",
+                          "gov.uk/government/publications/staying-alert-and-safe-social-distancing/staying-alert-and-safe-social-distancing",
+                          "twitter.com/MattHancock/status/1248336208759009280",
+                          "google.com/search?q=what+time+is+the+clapping+tonight?",
+                          "youtube.com/watch?v=7KgJSwX0yy0",
+                          "bbc.co.uk/news/uk-52329679",
+                          "news.sky.com/story/coronavirus-police-chief-warning-over-uk-lockdown-split-as-britain-bakes-11985648",
+                          "snapchat.com",
+                          "google.com/search?q=games+to+play+on+zoom",
+                          "pogo.com/games/monopolyclassic?sl=2&gamekey=monopolyclassic",
+                          "zynga.com/games/words-with-friends-2",
+                          "postcrossing.com",
+                          "ageuk.org.uk/get-involved/volunteer/telephone-befriender",
+                          "talkwithstranger.com",
+                          "verywellmind.com/how-to-cope-with-loneliness-during-coronavirus-4799661#connect-with-others",
+                          "google.com/search?q=alcohol+delivery+near+me"
+                        ]
+
+              // get a random number between 0 and the number of links
+              var randIdx = Math.random() * links.length;
+              // round it, so it can be used as array index
+              randIdx = parseInt(randIdx, 10);
+              // construct the link to be opened
+              var link = 'http://' + links[randIdx];
+
+     var win = window.open(link, '_blank');
+     win.focus();
+
+    };
+</script>
 
 
+<script>
+//Random Links for 'active'//
 
+           var activeLink = function() {
+
+             var links = [
+                          "youtube.com/watch?v=qULTwquOuT4"
+                          "nhs.uk/live-well/exercise/get-active-your-way"
+                          "sportengland.org/stayinworkout"
+                          "youtube.com/watch?v=0yZDVWab_dI"
+                          "youtube.com/watch?v=--jhKVdZOJM"
+                          "amazon.co.uk/s?k=weights&ref=nb_sb_noss_1"
+                          "amazon.co.uk/s?k=yoga+mat&crid=1FIK0074X596K&sprefix=yoga+m%2Caps%2C165&ref=nb_sb_ss_i_1_6"
+                          "asics.com/gb/en-gb/running-gear/c/as40100000"
+                          "gov.uk/government/publications/coronavirus-outbreak-faqs-what-you-can-and-cant-do/coronavirus-outbreak-faqs-what-you-can-and-cant-do"
+                          "gov.uk/government/news/coronavirus-guidance-on-access-to-green-spaces"
+                          "google.com/search?q=exercise+you+can+do+from+home"
+                          "runnersworld.com/news/a31439358/running-during-coronavirus"
+                          "headspace.com/headspace-meditation-app"
+                          "which.co.uk/reviews/face-mask/article/face-masks-where-to-buy-them-and-how-to-make-your-own"
+                        ]
+
+              // get a random number between 0 and the number of links
+              var randIdx = Math.random() * links.length;
+              // round it, so it can be used as array index
+              randIdx = parseInt(randIdx, 10);
+              // construct the link to be opened
+              var link = 'http://' + links[randIdx];
+
+     var win = window.open(link, '_blank');
+     win.focus();
+
+    };
+</script>
+
+<script>
+//Random Links for 'Sleep'//
+
+           var sleepLink = function() {
+
+             var links = [
+                          "google.com/search?q=how+much+sleep+do+i+need"
+                          "youtube.com/watch?v=i-LvgML3j2Q"
+                          "youtube.com/watch?v=q76bMs-NwRk"
+                          "justgetflux.com"
+                        ]
+
+              // get a random number between 0 and the number of links
+              var randIdx = Math.random() * links.length;
+              // round it, so it can be used as array index
+              randIdx = parseInt(randIdx, 10);
+              // construct the link to be opened
+              var link = 'http://' + links[randIdx];
+
+     var win = window.open(link, '_blank');
+     win.focus();
+
+    };
+</script>
 
 
 
