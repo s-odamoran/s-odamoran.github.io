@@ -470,6 +470,42 @@ Etiam bibendum tempus mi in vehicula. Vivamus sagittis erat ut sapien venenatis,
 </script>
 
 <script>
+//Random Links for 'active'//
+
+           var activeLink = function() {
+
+             var links = [
+                          "youtube.com/watch?v=qULTwquOuT4"
+                          "nhs.uk/live-well/exercise/get-active-your-way"
+                          "sportengland.org/stayinworkout"
+                          "youtube.com/watch?v=0yZDVWab_dI"
+                          "youtube.com/watch?v=--jhKVdZOJM"
+                          "amazon.co.uk/s?k=weights&ref=nb_sb_noss_1"
+                          "amazon.co.uk/s?k=yoga+mat&crid=1FIK0074X596K&sprefix=yoga+m%2Caps%2C165&ref=nb_sb_ss_i_1_6"
+                          "asics.com/gb/en-gb/running-gear/c/as40100000"
+                          "gov.uk/government/publications/coronavirus-outbreak-faqs-what-you-can-and-cant-do/coronavirus-outbreak-faqs-what-you-can-and-cant-do"
+                          "gov.uk/government/news/coronavirus-guidance-on-access-to-green-spaces"
+                          "google.com/search?q=exercise+you+can+do+from+home"
+                          "runnersworld.com/news/a31439358/running-during-coronavirus"
+                          "headspace.com/headspace-meditation-app"
+                          "which.co.uk/reviews/face-mask/article/face-masks-where-to-buy-them-and-how-to-make-your-own"
+                        ]
+
+              // get a random number between 0 and the number of links
+              var randIdx = Math.random() * links.length;
+              // round it, so it can be used as array index
+              randIdx = parseInt(randIdx, 10);
+              // construct the link to be opened
+              var link = 'http://' + links[randIdx];
+
+     var win = window.open(link, '_blank');
+     win.focus();
+
+    };
+</script>
+
+
+<script>
 //Random Links for 'Social'//
 
            var socialLink = function() {
@@ -513,40 +549,6 @@ Etiam bibendum tempus mi in vehicula. Vivamus sagittis erat ut sapien venenatis,
 </script>
 
 
-<script>
-//Random Links for 'active'//
-
-           var activeLink = function() {
-
-             var links = [
-                          "youtube.com/watch?v=qULTwquOuT4"
-                          "nhs.uk/live-well/exercise/get-active-your-way"
-                          "sportengland.org/stayinworkout"
-                          "youtube.com/watch?v=0yZDVWab_dI"
-                          "youtube.com/watch?v=--jhKVdZOJM"
-                          "amazon.co.uk/s?k=weights&ref=nb_sb_noss_1"
-                          "amazon.co.uk/s?k=yoga+mat&crid=1FIK0074X596K&sprefix=yoga+m%2Caps%2C165&ref=nb_sb_ss_i_1_6"
-                          "asics.com/gb/en-gb/running-gear/c/as40100000"
-                          "gov.uk/government/publications/coronavirus-outbreak-faqs-what-you-can-and-cant-do/coronavirus-outbreak-faqs-what-you-can-and-cant-do"
-                          "gov.uk/government/news/coronavirus-guidance-on-access-to-green-spaces"
-                          "google.com/search?q=exercise+you+can+do+from+home"
-                          "runnersworld.com/news/a31439358/running-during-coronavirus"
-                          "headspace.com/headspace-meditation-app"
-                          "which.co.uk/reviews/face-mask/article/face-masks-where-to-buy-them-and-how-to-make-your-own"
-                        ]
-
-              // get a random number between 0 and the number of links
-              var randIdx = Math.random() * links.length;
-              // round it, so it can be used as array index
-              randIdx = parseInt(randIdx, 10);
-              // construct the link to be opened
-              var link = 'http://' + links[randIdx];
-
-     var win = window.open(link, '_blank');
-     win.focus();
-
-    };
-</script>
 
 <script>
 //Random Links for 'Sleep'//
