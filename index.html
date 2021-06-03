@@ -9,8 +9,20 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Larp Club.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Larp Club" startnode="1" creator="Twine" creator-version="2.3.13" ifid="DB3A5BFC-AF40-47A2-A9F5-8F04BB2771CA" zoom="0.6" format="Harlowe" format-version="3.2.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-sidebar{
+<tw-storydata name="Larp Club" startnode="1" creator="Twine" creator-version="2.3.13" ifid="DB3A5BFC-AF40-47A2-A9F5-8F04BB2771CA" zoom="0.6" format="Harlowe" format-version="3.2.1" options="" hidden>
+  <style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+
+  tw-sidebar{
   padding:1%;
+}
+
+@font-face {
+  font-family: 'LARP';
+  src: url('LARPdisplay.woff2') format("woff2-variations"),
+       url('LARPdisplay.woff2') format("woff2"); /* poss for older browsers? */
+       font-display: swap;
+/*font-weight: 100 1000; */
+font-stretch: 85% 100%;
 }
 
 tw-story {
@@ -22,7 +34,7 @@ tw-story {
 }
 
 .sans tw-link{
-  	font-family:Helvetica;
+  	font-family: 'LARP';
 }
 
 .enchantment-link, tw-link {
@@ -32,7 +44,7 @@ tw-story {
 }
 
 .enchantment-link:hover, tw-link:hover {
-  	
+
 	cursor: crosshair;
   	color: #e0f520;
     text-shadow:1px 1px 2px #fff, 1px 1px 2px #eef985;
