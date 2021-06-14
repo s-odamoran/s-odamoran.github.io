@@ -376,6 +376,7 @@ body {
 }
 #qleft{
   align-items:right;
+  text-align:right;
   justify-content:right;
   flex-flow:row;
   min-height:30vh;
@@ -640,7 +641,6 @@ a.link-external{
 
 
 #copyright{
-  display:flex;
   text-align:right;
   justify-content:right;
   align-content:right;
@@ -1333,12 +1333,12 @@ Larp Club is a platform which aims to explore how variable-fonts meet our instin
 
 &lt;&lt;if $slant gte 0 and $slant lte 3&gt;&gt;
 &lt;&lt;set $attr2 to &quot;fast&quot;&gt;&gt; 
-&lt;&lt;elseif $slant lte 6 and $width gte 7&gt;&gt;
+&lt;&lt;elseif $slant lte 4 and $width gte 6&gt;&gt;
 &lt;&lt;set $attr2 to &quot;sneaky&quot;&gt;&gt; 
 &lt;&lt;elseif $slant gte 7 and $slant lte 9&gt;&gt;
 &lt;&lt;set $attr2 to &quot;nimble&quot;&gt;&gt; 
 &lt;&lt;else&gt;&gt;
-&lt;&lt;set $attr2 to &quot;slow&quot;&gt;&gt; 
+&lt;&lt;set $attr2 to &quot;timid&quot;&gt;&gt; 
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $width gte 0 and $width lte 6&gt;&gt;
