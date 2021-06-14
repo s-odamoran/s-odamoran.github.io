@@ -314,6 +314,7 @@ body {
     /* min-width: 100vw;     Not necessary? */
   	background:
 	url('Images/Barleft2.png') left repeat-y fixed,
+	/*url('Images/barbottom.png') bottom no-repeat fixed,   May use later*/
 	url('Images/barright2.png') right repeat-y fixed;
   	background-color: black;
 	margin:0;
@@ -376,7 +377,6 @@ body {
 }
 #qleft{
   align-items:right;
-  text-align:right;
   justify-content:right;
   flex-flow:row;
   min-height:30vh;
@@ -641,6 +641,7 @@ a.link-external{
 
 
 #copyright{
+  display:flex;
   text-align:right;
   justify-content:right;
   align-content:right;
@@ -1001,7 +1002,31 @@ Macro.add('fadeout', {
 
 		&lt;&lt;if tags().includes(&quot;final&quot;)&gt;&gt;
 		&lt;span class=&quot;footerelements&quot;&gt;
-		&lt;a href=&quot;https://www.fiverr.com/&quot;&gt;▼  Download&#39;&lt;/a&gt;
+		&lt;form action=&quot;https://font-downloaded.herokuapp.com/&quot; method=&quot;get&quot;&gt;
+			&lt;input type=&quot;hidden&quot; id=&quot;wght&quot; name=&quot;wght&quot;&gt;
+			&lt;input type=&quot;hidden&quot; id=&quot;slnt&quot; name=&quot;slnt&quot;&gt;
+			&lt;input type=&quot;hidden&quot; id=&quot;wdth&quot; name=&quot;wdth&quot;&gt;
+			&lt;input type=&quot;hidden&quot; id=&quot;name&quot; name=&quot;name&quot;&gt;
+			&lt;input type=&quot;submit&quot; value=&quot;Get your font!&quot;&gt;
+ 		&lt;/form&gt;
+		&lt;div style=&quot;display:none&quot; id=&quot;wdthVal&quot;&gt;
+			&lt;&lt;print $width + 100 &gt;&gt;
+		&lt;/div&gt;
+		&lt;div style=&quot;display:none&quot; id=&quot;slntVal&quot;&gt;
+			&lt;&lt;print $slant * 10 &gt;&gt;
+		&lt;/div&gt;
+		&lt;div style=&quot;display:none&quot; id=&quot;wghtVal&quot;&gt;
+			&lt;&lt;print $weight * 100 &gt;&gt;
+		&lt;/div&gt;
+		&lt;div style=&quot;display:none&quot; id=&quot;nameVal&quot;&gt;
+			&lt;&lt;print $name &gt;&gt;
+		&lt;/div&gt;
+		&lt;script&gt;
+			document.getElementById(&quot;wdth&quot;).value = document.getElementById(&quot;wdthVal&quot;).innerText;
+			document.getElementById(&quot;wght&quot;).value = document.getElementById(&quot;wghtVal&quot;).innerText;
+			document.getElementById(&quot;slnt&quot;).value = document.getElementById(&quot;slntVal&quot;).innerText;
+			document.getElementById(&quot;name&quot;).value = document.getElementById(&quot;nameVal&quot;).innerText;
+		&lt;/script&gt;
  		&lt;span&gt;&amp;nbsp;&lt;&lt;print $name&gt;&gt;.ttf/.woff&lt;/span&gt;&lt;/span&gt;
 		&lt;&lt;/if&gt;&gt;
 &lt;/div&gt;
@@ -1333,12 +1358,12 @@ Larp Club is a platform which aims to explore how variable-fonts meet our instin
 
 &lt;&lt;if $slant gte 0 and $slant lte 3&gt;&gt;
 &lt;&lt;set $attr2 to &quot;fast&quot;&gt;&gt; 
-&lt;&lt;elseif $slant lte 4 and $width gte 6&gt;&gt;
+&lt;&lt;elseif $slant lte 6 and $width gte 7&gt;&gt;
 &lt;&lt;set $attr2 to &quot;sneaky&quot;&gt;&gt; 
 &lt;&lt;elseif $slant gte 7 and $slant lte 9&gt;&gt;
 &lt;&lt;set $attr2 to &quot;nimble&quot;&gt;&gt; 
 &lt;&lt;else&gt;&gt;
-&lt;&lt;set $attr2 to &quot;timid&quot;&gt;&gt; 
+&lt;&lt;set $attr2 to &quot;slow&quot;&gt;&gt; 
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $width gte 0 and $width lte 6&gt;&gt;
@@ -1418,7 +1443,7 @@ Larp Club is fully editable in &lt;a href=&quot;http://twinery.org/&quot; target
 
 </tw-passagedata><tw-passagedata pid="15" name="Source" tags="" position="124,727" size="100,100">&lt;div class=&quot;container&quot;&gt;&lt;hr&gt;
 &lt;span style=&quot;font-size:13.5vw&quot;&gt;Coming soon&lt;/span&gt;&lt;hr&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="alignment" tags="" position="318,224" size="100,100">&lt;div id=&quot;right&quot;&gt;&lt;img src=&quot;Images/alignment.jpeg&quot;&gt;&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="17" name="First Question" tags="noprev" position="598,98" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="alignment" tags="" position="318,224" size="100,100">&lt;div id=&quot;right&quot;&gt;&lt;img src=&quot;Images/alignment.jpeg&quot;&gt;&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="17" name="First Question" tags="noprev" position="598,98.5" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
 &lt;span class=&quot;question&quot;&gt;family elders are expressing disapproval of you to the rest of the family, do you:&lt;/span&gt;
 
 &lt;div id=&quot;qcontainer&quot;&gt;\
@@ -1447,7 +1472,7 @@ Larp Club is fully editable in &lt;a href=&quot;http://twinery.org/&quot; target
 &lt;&lt;/link&gt;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;/div&gt;\
 &lt;/div&gt;\
-&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="18" name="Second Question" tags="noprev" position="600,226" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
+&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="18" name="Second Question" tags="noprev" position="600,226.5" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
 &lt;span class=&quot;question&quot;&gt;would you give up a promising career to aid the family in time of need:&lt;/span&gt;
 
 &lt;div id=&quot;qcontainer&quot;&gt;\
@@ -1476,7 +1501,7 @@ Larp Club is fully editable in &lt;a href=&quot;http://twinery.org/&quot; target
 &lt;&lt;/link&gt;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;/div&gt;\
 &lt;/div&gt;\
-&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="19" name="Third Question" tags="noprev" position="598,351" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
+&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="19" name="Third Question" tags="noprev" position="598,351.5" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
 &lt;span class=&quot;question&quot;&gt;a corrupt official offers you wealth if you&#39;ll testify against a friend, do you:
 &lt;/span&gt;
 
@@ -1506,7 +1531,7 @@ Larp Club is fully editable in &lt;a href=&quot;http://twinery.org/&quot; target
 &lt;&lt;/link&gt;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;/div&gt;\
 &lt;/div&gt;\
-&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="20" name="Fourth Question" tags="noprev" position="598,474" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
+&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="20" name="Fourth Question" tags="noprev" position="598,474.5" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
 &lt;span class=&quot;question&quot;&gt;do you let people in easily, or hold most people at a safe distance:
 &lt;/span&gt;
 
@@ -1536,7 +1561,7 @@ Larp Club is fully editable in &lt;a href=&quot;http://twinery.org/&quot; target
 &lt;&lt;/link&gt;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;/div&gt;\
 &lt;/div&gt;\
-&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="21" name="Fifth Question" tags="noprev" position="800,98" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
+&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="21" name="Fifth Question" tags="noprev" position="800,98.5" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
 &lt;span class=&quot;question&quot;&gt;do you insist on repayment when lending money to friends:
 &lt;/span&gt;
 
@@ -1566,7 +1591,7 @@ Larp Club is fully editable in &lt;a href=&quot;http://twinery.org/&quot; target
 &lt;&lt;/link&gt;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;/div&gt;\
 &lt;/div&gt;\
-&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="22" name="Sixth Question" tags="noprev" position="800,224" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
+&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="22" name="Sixth Question" tags="noprev" position="800,224.5" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
 &lt;span class=&quot;question&quot;&gt;do you donate time and money to improve the local community:
 &lt;/span&gt;
 
@@ -1596,7 +1621,7 @@ Larp Club is fully editable in &lt;a href=&quot;http://twinery.org/&quot; target
 &lt;&lt;/link&gt;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;/div&gt;\
 &lt;/div&gt;\
-&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="23" name="Seventh Question" tags="noprev" position="799,349" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
+&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="23" name="Seventh Question" tags="noprev" position="799,349.5" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
 &lt;span class=&quot;question&quot;&gt;do you respect the laws and authorities in the community:
 &lt;/span&gt;
 
@@ -1626,7 +1651,7 @@ Larp Club is fully editable in &lt;a href=&quot;http://twinery.org/&quot; target
 &lt;&lt;/link&gt;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;/div&gt;\
 &lt;/div&gt;\
-&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="24" name="Eighth Question" tags="noprev" position="802,474" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
+&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="24" name="Eighth Question" tags="noprev" position="802,474.5" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
 &lt;span class=&quot;question&quot;&gt;if you were offered huge wealth, would you spy for a hostile foreign power:
 &lt;/span&gt;
 
@@ -1656,7 +1681,7 @@ Larp Club is fully editable in &lt;a href=&quot;http://twinery.org/&quot; target
 &lt;&lt;/link&gt;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;/div&gt;\
 &lt;/div&gt;\
-&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="25" name="Ninth Question" tags="noprev" position="1001,98" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
+&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="25" name="Ninth Question" tags="noprev" position="1001,98.5" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
 &lt;span class=&quot;question&quot;&gt;your country is wracked with famine, would you:
 &lt;/span&gt;
 
@@ -1685,7 +1710,7 @@ Larp Club is fully editable in &lt;a href=&quot;http://twinery.org/&quot; target
 &lt;&lt;/link&gt;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;/div&gt;\
 &lt;/div&gt;\
-&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="26" name="Tenth Question" tags="noprev" position="1000,222" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
+&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="26" name="Tenth Question" tags="noprev" position="1000,222.5" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
 &lt;span class=&quot;question&quot;&gt;By using magic, you could fool village merchants into thinking your copper pieces were made of gold, do you:
 &lt;/span&gt;
 
@@ -1715,7 +1740,7 @@ Larp Club is fully editable in &lt;a href=&quot;http://twinery.org/&quot; target
 &lt;&lt;/link&gt;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;/div&gt;\
 &lt;/div&gt;\
-&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="27" name="Eleventh Question" tags="noprev" position="1001,351" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
+&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="27" name="Eleventh Question" tags="noprev" position="1001,351.5" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
 &lt;span class=&quot;question&quot;&gt;you have accidentally committed a crime, do you:
 &lt;/span&gt;
 
@@ -1745,7 +1770,7 @@ Larp Club is fully editable in &lt;a href=&quot;http://twinery.org/&quot; target
 &lt;&lt;/link&gt;&gt;&lt;/span&gt;&lt;/div&gt;
 &lt;/div&gt;\
 &lt;/div&gt;\
-&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="28" name="Twelvth Question" tags="noprev" position="1002,473" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
+&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="28" name="Twelvth Question" tags="noprev" position="1002,473.5" size="100,100">&lt;div class=&quot;qpassage&quot;&gt;\
 &lt;span class=&quot;question&quot;&gt;what is the best path to wealth and success:
 &lt;/span&gt;
 
