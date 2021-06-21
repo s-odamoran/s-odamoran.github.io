@@ -62,10 +62,10 @@ header {
 }
 
 .flower{
-  background:
+  /*background:
   url('flower.png');
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center;*/
   min-height: 100vh;
   min-width:100vw;
   display: flex;
@@ -95,6 +95,7 @@ header {
 .row{
 display:flex;
 flex-flow:row;
+justify-content:center;
 }
 
 .limg{
@@ -106,13 +107,27 @@ flex-flow:row;
   padding-right: 4vw;
 }
 
+.limg > img,
+.rimg > img{
+  width:25vw;
+  heiht:auto;
+}
+
+
 #border{
   max-width: 80vw;
   display: flex;
   justify-content: center;
   margin:auto;
+  padding-top: 20vh;
+  padding-bottom: 10vh;
+
 }
 
+#border >img{
+  max-width:80vw;
+  height:auto;
+}
 
 
 .hero{
