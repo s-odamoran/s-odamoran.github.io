@@ -1,0 +1,597 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="description" content="temporality,acceleration,corona,time,isolation" />
+        <meta name="viewport" content="width=device-width" />
+
+        <link rel="stylesheet" href="flexitimestyles.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+		<title>Flexitime</title>
+    </head>
+    <body>
+      <!--Three following divs are wrappers for the scroll-bar hider-->
+      <div class="outer-container">
+       <div class="inner-container">
+       <div class="element">
+
+<div id="page"> <!--wrapper for the 'About' modal-->
+  <header></header>
+  <main> <!--For 'about' modal-->
+       <button class="JPO_open">?</button>
+
+		<button onclick="startit()" class="startbutton">Speed +</button>
+		<button onclick="stopscroll()" class="stopbutton">Speed -</button>
+		<div class="showcase">
+			<div class="bg">
+				<div class="panel" data-color="white" id="endpanel">
+					<div class="intro">
+						<div>
+							<img src="Pics/Flexitime.png"/>
+						</div>
+            <br>
+						<p class="desc">Forget your alarm clocks, packed commutes and cold mealdeals. This quarantine you can expect lie-ins till late, Zoom chats for lunch and Slack pings for dinner - rolling news through the day and Netflix at night. Friends want to catch up? Hop on Houseparty and get social! With FlexiTime you’ll <i>always</i> have enough time in the day</p>
+						<br>
+
+						<p class="instructions">Use the &#39;Speed +/-&#39; buttons to control the flow. They can be pressed multiple times to go faster and slower. Clicking on a segment will take you to a random relevant site </p>
+					</div>
+				</div>
+			<!--'Time zones'-->
+  <a href="javascript:currentLink()" id="cursor">
+				<div class="panel" data-color="current">
+          <img src="Pics/Current/currentbg.png" />
+					<img src="Pics/Current/currentbackimgs.png" />
+					<img src="Pics/Current/currenttitle.png" />
+					<img src="Pics/Current/currentfrontimgs.png" />
+	       </div>
+      </a>
+  <a href="javascript:contentLink()" id="cursor">
+				<div class="panel" data-color="content">
+					<img src="Pics/Content/background.png" />
+					<img src="Pics/Content/BackImages.png" />
+					<img src="Pics/Content/type.png" />
+					<img src="Pics/Content/NearImages.png" />
+				</div>
+      </a>
+  <a href="javascript:productiveLink()" id="cursor">
+				<div class="panel" data-color="work">
+					<img src="Pics/Productive/productivebg.png" />
+					<img src="Pics/Productive/productivetitle.png" />
+					<img src="Pics/Productive/productivebackimgs.png" />
+					<img src="Pics/Productive/productivefrontimgs.png" />
+				</div>
+      </a>
+  <a href="javascript:activeLink()" id="cursor">
+				<div class="panel" data-color="active">
+					<img src="Pics/Active/activebg.png" />
+					<img src="Pics/Active/activebackimgs.png" />
+					<img src="Pics/Active/activetitle.png" />
+					<img src="Pics/Active/activefrontimgs.png" />
+				</div>
+      </a>
+  <a href="javascript:socialLink()" id="cursor">
+				<div class="panel" data-color="connect">
+					<img src="Pics/Social/bg.png" />
+					<img src="Pics/Social/socialbackimgs.png" />
+					<img src="Pics/Social/socialtitle.png" />
+					<img src="Pics/Social/socialfrontimgs.png" />
+				</div>
+      </a>
+  <a href="javascript:sleepLink()" id="cursor">
+				<div class="panel" data-color="sleep">
+					<img src="Pics/Sleep/sleepbg.png" />
+					<img src="Pics/Sleep/sleepbackimgs.png" />
+					<img src="Pics/Sleep/sleeptitle.png" />
+				</div>
+      </a>
+
+
+      </div>
+		</div>
+
+</main>
+<footer></footer>
+</div>
+<!-- Content for the modal -->
+<div id="JPO">
+
+  This page was written and put together during the Corona Virus lockdown in the UK, in response to the Info & Systems ‘Acts of Publishing’ brief.<br><br>
+
+     The main idea behind the site is what digital tech - and the platforms and cultures it births - does to our sense of time. The Corona Virus pandemic has served to exacerbate this warping of time, increasing the hours of our days that are mediated via screens. I’m someone who finds it hard to get away from the endless rhythm of the internet, the infinite scroll – this page is an expression of that struggle. An endless stream of homogenised, familiar content, often making you guilty for the inaction that it has lulled you into in the first place. <br><br>
+
+     The internet and digital tech are just tools, and so this is not some kind of luddite argument for regression, or an appeal to analogue. Without the internet, no doubt a lot of us would find the self-isolation much bleaker, the communication, entertainment, and education it offers us is indispensable. <br>
+     However, it's important to remember that the platforms providing this stimulation are active participants in shaping our world and not simply neutral mediators of data, as they often come across as. To control the digital infosphere is to control the narrative of the real world, the distinction between the two is mostly meaningless. To have your attention is to have your time, the most valuable asset you have - it's important to spend it wisely.
+
+
+
+  <!-- Add a button to close the popup (optional, I don't want it) -->
+  <!--<button class="JPO_close">Close</button>-->
+</div>
+
+
+</div><!--Three divs close the scroll bar hiding containers-->
+</div>
+</div>
+
+<!-- Include jQuery (I don't think this is needed)-->
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>-->
+
+<!-- Include jQuery Popup Overlay -->
+<script src="https://cdn.jsdelivr.net/gh/vast-engineering/jquery-popup-overlay@2/jquery.popupoverlay.min.js">
+</script>
+
+<script>
+  $(document).ready(function() {
+
+    // Initialize the plugin
+    $('#JPO').popup({
+      transition: 'all 0.3s' //fade in//
+    });
+
+
+    // Set default `pagecontainer` for all popups (optional, but recommended for screen readers and iOS*)
+    $.fn.popup.defaults.pagecontainer = '#page'
+  });
+</script>
+
+
+		<script>
+    //Background colour change//
+			showcaseWindow = $('.showcase') ;
+
+			 $(showcaseWindow).scroll(function() {
+
+			  // selectors
+			  var showcaseWindow = $('.showcase'),
+				  body = $('body'),
+				  panel = $('.panel');
+
+			  // Change 33% earlier than scroll position so colour is there when you arrive.
+			  var scroll = $(showcaseWindow).scrollTop() / 8 + 200 ; // + ($(showcaseWindow).height() / 3);
+
+			  panel.each(function () {
+				// if position is within range of this panel.
+				// So position of (position of top of div <= scroll position) && (position of bottom of div > scroll position).
+				// Remember we set the scroll to 33% earlier in scroll var.
+				if ($(this).offset().top <= scroll && $(this).offset().top + $(this).height() > scroll) {
+
+				  // Remove all classes on body with color-
+				  $(body).removeClass(function (index, css) {
+					return (css.match (/(^|\s)color-\S+/g) || []).join(' ');
+				  });
+
+				  // Add class of currently active div
+				  $(body).addClass('color-' + $(this).data('color'));
+				}
+			  });
+
+			}).scroll();
+		</script>
+
+
+
+
+    <script>
+	//Autoscroll//
+			var speed=5 ; //this was 1 initially//
+			var downspeed= 1 ;
+			var stopspeed= 0 ;
+			var currentpos=0 ;
+			var alt = 0 ;
+			var curpos1 = 100 ;
+			var curpos2 = 1 ;
+			var timeoutid = null ;
+			var e = document.getElementsByClassName("showcase")[0];
+
+			function initialize(){
+				startit() ;
+			}
+
+			function goup(e) {
+				speed = stopspeed ;
+			}
+
+			function godown(e) {
+				speed = downspeed ;
+			}
+
+			function scrollwindow(){
+
+				//if (document.all) {
+					temp=e.scrollTop;
+				//} else {
+				//	temp=e.scrollTop;
+				//}
+				if (alt==0) {
+					alt=1;
+					curpos2 = temp;
+				} else {
+					alt=0;
+					curpos1 = temp;
+				}
+
+				if ((curpos1==curpos2) && (speed > 0)) {
+					currentpos = 0;
+					curpos1 = 100;
+				} else {
+					//if (document.all) {
+						currentpos=e.scrollTop+speed;
+					//} else {
+					//	currentpos=e.scrollTop+speed;
+					//}
+				}
+
+				if (speed > 0) { e.scroll(0,currentpos); }
+				timeoutid = setTimeout("scrollwindow()", 20);
+			}
+
+			function startit(){
+				timeoutid = setTimeout("scrollwindow()", 20) ;
+			}
+
+      /*window.onload= initialize*/
+      /*Above makes page autoscroll on page load*/
+
+			/*document.onmousedown = goup;*/
+			/*Above is commented for buttons to work*/
+
+      /*document.ondblclick = godown;*/
+      /*Above isn't needed anymore*/
+
+			function stopscroll() {
+			  clearTimeout(timeoutid) ;
+			}
+		</script>
+
+
+
+<script>
+//Random Links for 'Current'//
+
+           var currentLink = function() {
+
+             var links = [
+                           "uk.yahoo.com",
+                           "cnn.com",
+                           "news.yahoo.co.jp",
+                           "bbc.co.uk/news",
+                           "theguardian.com/uk",
+                           "thesun.co.uk",
+                           "mirror.co.uk",
+                           "thetimes.co.uk",
+                           "telegraph.co.uk",
+                           "nbcnews.com",
+                           "huffpost.com",
+                           "cbsnews.com",
+                           "sina.com.cn",
+                           "news.cctv.com",
+                           "news.qq.com",
+                           "cpc.people.com.cn",
+                           "usatoday.com",
+                           "express.co.uk",
+                           "dailystar.co.uk",
+                           "metro.co.uk",
+                           "dailymail.co.uk",
+                           "metro.co.uk",
+                           "standard.co.uk",
+                           "bylinetimes.com",
+                           "novaramedia.com",
+                           "doubledown.news",
+                           "economist.com",
+                           "buzzfeed.com",
+                           "nytimes.com",
+                           "newyorker.com",
+                           "ft.com",
+                           "foxnews.com",
+                           "washingtonpost.com",
+                           "cnet.com",
+                           "msn.com",
+                           "npr.org",
+                           "latimes.com",
+                           "nypost.com",
+                           "mashable.com",
+                           "slate.com",
+                           "theblaze.com",
+                           "vice.com",
+                           "vox.com",
+                           "salon.com",
+                           "nj.com",
+                           "independent.co.uk",
+                           "theatlantic.com/world",
+                           "aljazeera.com",
+                           "rt.com/news",
+                           "reuters.com",
+                           "news.sky.com",
+                           "nhk.jp",
+                           "japantimes.co.jp",
+                           "chicago.suntimes.com",
+                           "zeit.de",
+                           "morningstaronline.co.uk",
+                           "dailyrecord.co.uk",
+                           "sundaysportonline.co.uk",
+                           "thestar.co.uk",
+                           "jacobinmag.com",
+                           "bloomberg.com",
+                           "asahi.com",
+                           "independent.co.uk",
+                           "punchng.com",
+                           "jacobitemag.com",
+                           "bylinetimes.com/2020/04/03/the-coronavirus-crisis-herd-immunity-has-infected-uk-policy-but-who-was-patient-zero-for-this-toxic-transatlantic-idea",
+                           "google.com/search?q=what+is+herd+immunity?"
+
+                          ]
+              // get a random number between 0 and the number of links
+              var randIdx = Math.random() * links.length;
+              // round it, so it can be used as array index
+              randIdx = parseInt(randIdx, 10);
+              // construct the link to be opened
+              var link = 'http://' + links[randIdx];
+
+     var win = window.open(link, '_blank');
+     win.focus();
+
+    };
+</script>
+
+
+<script>
+//Random Links for 'Content'//
+
+           var contentLink = function() {
+
+             var links = [
+                           "twitter.com",
+                           "youtube.com",
+                           "rhizome.org",
+                           "netflix.com",
+                           "e-flux.com",
+                           "instagram.com",
+                           "store.steampowered.com",
+                           "open.spotify.com",
+                           "soundcloud.com",
+                           "kanopy.com",
+                           "4chan.org",
+                           "2chan.net",
+                           "pitchfork.com",
+                           "reddit.com",
+                           "ign.com",
+                           "residentadvisor.net",
+                           "tumblr.com",
+                           "are.na",
+                           "facebook.com",
+                           "amazon.com",
+                           "medium.com",
+                           "google.com/search?q=how+to+watch+films+for+free",
+                           "google.com/search?q=pirate+proxy",
+                           "play2048.co",
+                           "video.vice.com",
+                           "pinterest.com",
+                           "vk.com",
+                           "bilibili.com",
+                           "tiktok.com",
+                           "twitch.tv",
+                           "store.playstation.com",
+                           "xbox.com/games",
+                           "epicgames.com/fortnite",
+                           "nintendo.com/games/detail/animal-crossing-new-horizons-switch",
+                           "google.com/search?q=top+ten+movies+2020",
+                           "google.com/search?q=best+shows+on+netflix",
+                           "waifu.lofiu.com",
+                           "artbreeder.com",
+                           "google.com/search?q=How+much+longer+will+lockdown+be",
+                           "nts.live",
+                           "rinse.fm",
+                           "deliveroo.com"
+                          ]
+
+              // get a random number between 0 and the number of links
+              var randIdx = Math.random() * links.length;
+              // round it, so it can be used as array index
+              randIdx = parseInt(randIdx, 10);
+              // construct the link to be opened
+              var link = 'http://' + links[randIdx];
+
+     var win = window.open(link, '_blank');
+     win.focus();
+
+    };
+</script>
+
+
+<script>
+//Random Links for 'Productive'//
+
+           var productiveLink = function() {
+
+             var links = [
+                          "fiverr.com",
+                          "youtube.com/watch?v=-FlxM_0S2lA",
+                          "slack.com",
+                          "zoom.us",
+                          "stackoverflow.com",
+                          "chrome.google.com/webstore/detail/procrastinator/enagjojfhclogmaemicdkkohjghgpodh?hl=en-GB",
+                          "accounts.google.com/b/1/AddMailService",
+                          "outlook.com",
+                          "s-odamoran.github.io/break.html",
+                          "silviolorusso.com",
+                          "doorsopen.co",
+                          "gov.uk/jobseekers-allowance",
+                          "gov.uk/universal-credit",
+                          "google.com/search?q=am+i+entitled+to+furlough+pay?",
+                          "s-odamoran.github.io/anotherbreak.html",
+                          "tetris.com/play-tetris",
+                          "en.wikipedia.org/wiki/Main_Page",
+                          "github.com",
+                          "google.com/search?q=website+time+limiter",
+                          "w3schools.com",
+                          "lynda.com",
+                          "linkedin.com",
+                          "google.com/search?q=how+long+is+too+long+for+a+cover+letter",
+                          "google.co.uk/docs/about",
+                          "wix.com",
+                          "nasdaq.com",
+                          "marketwatch.com/investing/stock/live",
+                          "coinmarketcap.com",
+                          "figma.com",
+                          "codecademy.com",
+                          "pinterest.com",
+                          "music-jobs.com",
+                          "unicornhunt.io",
+                          "htmlcolorcodes.com",
+                          "codepen.io",
+                          "jsfiddle.net",
+                          "superhi.com/editor",
+                          "mega.nz",
+                          "dropbox.com",
+                          "skillshare.com",
+                          "duolingo.com",
+                          "turbosquid.com",
+                          "s-odamoran.github.io/morebreaks.html",
+                          "deliveroo.com",
+                          "just-eat.com"
+                          ]
+
+              // get a random number between 0 and the number of links
+              var randIdx = Math.random() * links.length;
+              // round it, so it can be used as array index
+              randIdx = parseInt(randIdx, 10);
+              // construct the link to be opened
+              var link = 'http://' + links[randIdx];
+
+     var win = window.open(link, '_blank');
+     win.focus();
+
+    };
+</script>
+
+<script>
+//Random Links for 'active'//
+
+           var activeLink = function() {
+
+             var links = [
+                          "youtube.com/watch?v=qULTwquOuT4",
+                          "nhs.uk/live-well/exercise/get-active-your-way",
+                          "sportengland.org/stayinworkout",
+                          "youtube.com/watch?v=0yZDVWab_dI",
+                          "youtube.com/watch?v=--jhKVdZOJM",
+                          "amazon.co.uk/s?k=weights&ref=nb_sb_noss_1",
+                          "amazon.co.uk/s?k=yoga+mat&crid=1FIK0074X596K&sprefix=yoga+m%2Caps%2C165&ref=nb_sb_ss_i_1_6",
+                          "asics.com/gb/en-gb/running-gear/c/as40100000",
+                          "gov.uk/government/publications/coronavirus-outbreak-faqs-what-you-can-and-cant-do/coronavirus-outbreak-faqs-what-you-can-and-cant-do",
+                          "gov.uk/government/news/coronavirus-guidance-on-access-to-green-spaces",
+                          "google.com/search?q=exercise+you+can+do+from+home",
+                          "runnersworld.com/news/a31439358/running-during-coronavirus",
+                          "headspace.com/headspace-meditation-app",
+                          "which.co.uk/reviews/face-mask/article/face-masks-where-to-buy-them-and-how-to-make-your-own"
+                        ]
+
+              // get a random number between 0 and the number of links
+              var randIdx = Math.random() * links.length;
+              // round it, so it can be used as array index
+              randIdx = parseInt(randIdx, 10);
+              // construct the link to be opened
+              var link = 'http://' + links[randIdx];
+
+     var win = window.open(link, '_blank');
+     win.focus();
+
+    };
+</script>
+
+
+<script>
+//Random Links for 'Social'//
+
+           var socialLink = function() {
+
+             var links = [
+                          "discord.com",
+                          "youtube.com/watch?v=w15oWDh02K4",
+                          "web.whatsapp.com",
+                          "houseparty.com",
+                          "zoom.us",
+                          "facebook.com",
+                          "messenger.com",
+                          "gov.uk/government/publications/staying-alert-and-safe-social-distancing/staying-alert-and-safe-social-distancing",
+                          "twitter.com/MattHancock/status/1248336208759009280",
+                          "google.com/search?q=what+time+is+the+clapping+tonight?",
+                          "youtube.com/watch?v=7KgJSwX0yy0",
+                          "bbc.co.uk/news/uk-52329679",
+                          "news.sky.com/story/coronavirus-police-chief-warning-over-uk-lockdown-split-as-britain-bakes-11985648",
+                          "snapchat.com",
+                          "google.com/search?q=games+to+play+on+zoom",
+                          "pogo.com/games/monopolyclassic?sl=2&gamekey=monopolyclassic",
+                          "zynga.com/games/words-with-friends-2",
+                          "postcrossing.com",
+                          "ageuk.org.uk/get-involved/volunteer/telephone-befriender",
+                          "talkwithstranger.com",
+                          "verywellmind.com/how-to-cope-with-loneliness-during-coronavirus-4799661#connect-with-others",
+                          "google.com/search?q=alcohol+delivery+near+me"
+                        ]
+
+              // get a random number between 0 and the number of links
+              var randIdx = Math.random() * links.length;
+              // round it, so it can be used as array index
+              randIdx = parseInt(randIdx, 10);
+              // construct the link to be opened
+              var link = 'http://' + links[randIdx];
+
+     var win = window.open(link, '_blank');
+     win.focus();
+
+    };
+</script>
+
+
+
+<script>
+//Random Links for 'Sleep'//
+
+           var sleepLink = function() {
+
+             var links = [
+                          "google.com/search?q=how+much+sleep+do+i+need",
+                          "youtube.com/watch?v=i-LvgML3j2Q",
+                          "youtube.com/watch?v=q76bMs-NwRk",
+                          "justgetflux.com",
+                        ]
+
+              // get a random number between 0 and the number of links
+              var randIdx = Math.random() * links.length;
+              // round it, so it can be used as array index
+              randIdx = parseInt(randIdx, 10);
+              // construct the link to be opened
+              var link = 'http://' + links[randIdx];
+
+     var win = window.open(link, '_blank');
+     win.focus();
+
+    };
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</body>
+
+</html>
