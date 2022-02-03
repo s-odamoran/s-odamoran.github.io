@@ -1,7 +1,0 @@
-To remove flexitime, simply cut out:
-'Pics' folder
-anotherbreak.html
-break.html
-flexitime.html
-flexitimestyles.css
-morebreaks.html
