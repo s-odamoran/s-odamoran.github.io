@@ -1,394 +1,323 @@
+@font-face {
+  font-family: 'LARP';
+  src: url('./LARPdisplay.woff2') format("woff2-variations"),
+       url('./LARPdisplay.woff2') format("woff2"); /* poss for older browsers? */
+       font-display: swap;
+/*font-weight: 100 1000; */
+font-stretch: 85% 100%;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 
 
-
-/* Setting fade transition and default settings */
 body {
-	height: 100vh;
+	  height: 5000px;
     color: #000;
-    background-color: #f4f4f4;
-    transition: background-color 1s ease;
+    background-color: black;
     text-align: center;
-    font-size: 120%;
+    font-size: 1em;
     line-height: 1.618;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    margin: 0;
-    padding: 0;
-}
-
-/*removing the scroll bar [start]*/
-.element, .outer-container {
-	background:
-	url('Images/watermark.png')  local center; /*Clock face bg*/
-	background-repeat: repeat-y;
-
-
- width: 101vw;
- height: 100vh;
-}
-
-.outer-container {
-
- position: relative;
- overflow: hidden;
-}
-
-.inner-container {
- position: absolute;
- left: 0;
- overflow-x: hidden;
- overflow-y: scroll;
-}
-
-.inner-container::-webkit-scrollbar {
- display: none;
-}
-/*removing the scroll bar [end]*/
-
-/*Modal pop-up*/
-#JPO{
-	background-color: #F5F5F5;
-	border-radius: 3px;
-	max-width: 70vw;
-	max-height: 60vh;
-	overflow-x: hidden;
-	overflow-y: auto;
-	padding:25px;
-	font-family: sans-serif;
+    margin: 0 auto;
 
 }
 
+.top{
+	height: 20vh;
+	width: 100vw;
+	position: fixed;
+	background: rgb(0,0,0);
+	background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
+	top:0;
+	z-index: 1;
+}
 
-/*'Modal Button*/
-.JPO_open{
-  background-color: #FD1717;
-  border-radius: 30px;
-  opacity: 0.6;
-  border: none;
+
+.bottom{
+	height: 20vh;
+	width: 100vw;
+	position: fixed;
+	background: rgb(0,0,0);
+	background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
+	bottom:0;
+	z-index: 1;
+}
+
+
+.subheading{
+  font-family:'Larp';
+  font-size:2.2em;
   color: white;
-  font-size: 1em;
-  cursor: pointer;
+  padding-top:8vh;
+}
+
+
+
+/*This header is for the fadeout header which is commented out in the html*/
+header {
+	font-family: "Larp";
+	line-height:0.85;
+	font-size: 18vw;
+  background-color: #7e0a0a;
+  width: 100%;
+  height: 100vh;
   position: fixed;
-  top:75px;
-  right:80px;
-  z-index: 999;
-  display:flex;
-	transition: 0.3s;
-}
-
-.JPO_open:hover{
-	opacity: 0.8;
-}
-
-.startbutton{
-  background-color: #292929;
-  border-radius: 5px;
-  opacity: 0.5;
-  border: none;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  position: fixed;
-  top:50px;
-  left:80px;
-  z-index: 999;
-  display:flex;
-	transition: 0.3s;
-}
-
-.startbutton:hover{
-	opacity: 0.8;
-}
-
-
-.stopbutton{
-  background-color: #292929;
-  border-radius: 5px;
-  opacity: 0.5;
-  border: none;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  position: fixed;
-  top: 75px;
-  left: 80px;
-  z-index: 999;
-  display: flex;
-	transition: 0.3s;
-}
-
-.stopbutton:hover{
-	opacity: 0.8;
-}
-
-
-/* panel styles */
-.panel {
-	min-height: 88vw;
-    width: 80vw;
-    margin: auto;
-    text-align: center;
-    position: relative;
-    /*outline: 10px solid hotpink;*/
-}
-
-.panel > div.intro {
+  z-index: 1000;
+  /* padding-top: 5vh; */
+  top: 0;
+  left: 0;
 	margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-		padding-top: 10vh;
+	display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-div.showcase {
-	position: relative;
-	overflow-x: hidden;
-	overflow-y: scroll;
-	perspective: 2px;
-	height: 100vh;
+
+
+.fadein{
+	  transition: opacity 1s;
 }
 
-/** Exists to fix a real headache with the fixed/scrolling background disappearing
-off-screen to the right if the bg is defined in the .showcase div
-(and the body bg will never scroll at all...) **/
-div.bg {
+.fadeimage{
+	height: 24vw;
+	width: 80vw;
 	background:
-	  url('Images/Barleft2.png') left repeat-y fixed,
-		url('Images/timeleft.png') left repeat-y local,
-		url('Images/barright2.png') right repeat-y fixed,
-		url('Images/waveright.png') right repeat-y local;
-    width: 100vw ;
-    padding-bottom: 40vw;
+	url('luttrell.png')  local;
+	background-repeat: no-repeat;
+	background-size: 80vw;
+	background-position:  center bottom;
+	margin: auto;
+	background-color: var(--gray);
+  transition: opacity 1s;
+
 }
 
-.panel > img {
-	max-width:100%;
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	/*transform: translateZ(-1px) scale(1.5);	*/
-	z-index: -1;
+.row{
+display:flex;
+flex-flow:row;
 }
 
-/*parallax for the hero img*/
+.limg{
+  padding-left: 1vw;
 
-.panel .intro div > img {
-	transform: translateZ(0.24px) scale(0.8);
-    top: 3em;
-    position: relative;
-	max-width:105vw;
 }
 
-
-
-/** Standard layering **/
-.panel > img:first-of-type {
-    transform: translateZ(-1.4px) scale(1.9);
-	margin:auto;
+.rimg{
+  padding-right: 1vw;
 }
 
-.panel > img:nth-of-type(2) {
-	transform: translateZ(-1.2px) scale(1.5);
-	margin:auto;
+#border{
+  max-width: 80vw;
+  display: flex;
+  justify-content: center;
+  margin:auto;
 }
 
-.panel > img:nth-of-type(3) {
-	transform: translateZ(-1px) scale(1.23);
-	margin:auto;
+#border img{
+  max-width:55vw;
+  padding-top:10vh;
+  padding-bottom:2vh;
 }
 
-.panel > img:nth-of-type(4) {
-	transform: translateZ(-0.8px) scale(1.6);
-	margin:auto;
-}
-
-
-/****
-** Here are the adjustments per panel necessary when images are of different sizes/positions
-******/
-
-/**
- CURRENT
-**/
-.panel[data-color="current"] > img:first-of-type {
-	width: 60vw;
-    top: 0;
-}
-.panel[data-color="current"] > img:nth-of-type(2) {
-    top: 4vw;
-    left: 9vw;
-    width: 74vw;
-}
-.panel[data-color="current"] > img:nth-of-type(3) {
-    top: 8vw;
-    width: 42vw;
-}
-.panel[data-color="current"] > img:nth-of-type(4) {
-    top: 10vw;
-    width: 67vw;
-    left: -7vw;
-}
-
-/**
- CONTENT
-**/
-.panel[data-color="content"] > img:first-of-type {
-	width: 63vw;
-}
-.panel[data-color="content"] > img:nth-of-type(2) {
-    top: -44vw;
-    left: 7vw;
-}
-.panel[data-color="content"] > img:nth-of-type(3) {
-    top: -2vw;
-    left: 1vw;
-    width: 72vw;
-}
-.panel[data-color="content"] > img:nth-of-type(4) {
-    top: 15vw;
-    width: 74vw;
-}
-
-/**
- WORK/PRODUCTIVE
-**/
-.panel[data-color="work"] > img:first-of-type {
-	width: 50vw;
-}
-.panel[data-color="work"] > img:nth-of-type(2) {
-    top: 0;
-    left: 0;
-    transform: translateZ(-1.2px) scale(2.1); /* needed for this one */
-}
-.panel[data-color="work"] > img:nth-of-type(3) {
-    top: 0%;
-    left: -9vw;
-    width: 70vw;
-}
-.panel[data-color="work"] > img:nth-of-type(4) {
-    top: 5vw;
-    width: 61vw;
-}
-
-/**
- ACTIVE
-**/
-.panel[data-color="active"] > img:first-of-type {
-	width: 69vw;
-}
-.panel[data-color="active"] > img:nth-of-type(2) {
-    top: 4vw;
-    left: 0vw;
-    width: 81vw;
-    max-width: 81vw;
-}
-.panel[data-color="active"] > img:nth-of-type(3) {
-    top: 8vw;
-    left: 1vw;
-    width: 88vw;
-    max-width: 88vw;
-}
-.panel[data-color="active"] > img:nth-of-type(4) {
-	top: 18vw;
-    width: 73vw;
-}
-
-/**
- SOCIAL
-**/
-.panel[data-color="connect"] > img:first-of-type {
-	width: 68vw;
-}
-.panel[data-color="connect"] > img:nth-of-type(2) {
-    top: 12vw;
-    left: -6vw;
-    width: 82vw;
-    max-width: 82vw;
-}
-.panel[data-color="connect"] > img:nth-of-type(3) {
-	top: 1vw;
-    left: 4vw;
-    width: 50vw;
-}
-.panel[data-color="connect"] > img:nth-of-type(4) {
-    top: 4vw;
-    width: 68vw;
-}
-
-/**
- SLEEP
-**/
-.panel[data-color="sleep"] > img:first-of-type {
-	width: 45vw;
-}
-.panel[data-color="sleep"] > img:nth-of-type(2) {
-    top: -64vw;
-    left: -87vw;
-    width: 13vw;
-}
-.panel[data-color="sleep"] > img:nth-of-type(3) {
-    top: 1vw;
-    width: 25vw;
-}
-
-/* colours */
-.color-current {
-  background-color: #1454FF;
-}
-.color-content {
-  background-color: #ffc600;
-}
-.color-work {
-  background-color: #fd2a2a;
-}
-.color-active {
-  background-color: #29E04D;
-}
-.color-connect {
-  background-color: #ffa6e7;
-}
-.color-sleep {
-  background-color: #100b1d;
+#border img[src="border-6.png"]{
+  max-width:100vw;
+  padding-top:20vh;
+  padding-bottom:0;
 }
 
 
 
 
+#gap{
+  height:30vh;
+  max-width: 80vw;
+  margin:auto;
+}
 
-p {
-  max-width: 50vw;
-  margin-bottom: 1.618em;
+.tipwrapper{
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+.tipwrapper:hover .tooltip {
+  display:block;
+}
+
+.tooltip {
+  font-size: 1rem;
+  display: none;
+  color: red;
+  background-color: white;
+  border-color: white;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+  left: 40vw; /* moves the tooltip to the right */
+  position:absolute;
+  padding-left: 10px;
+  padding-right: 10px;
+  z-index: 1000;
+}
+
+.hero{
+	font-family: "Larp";
+	height: 100vh;
+	text-align: center;
+	line-height:0.85;
+	font-size: 20vw;
+	color:white;
+	display: flex;
+  justify-content: center;
+  align-items: center;
+	transition:1s;
 }
 
 
-
-.instructions{
-  color: #343434;
-  font-style: oblique;
-  font-weight: bold;
-	font-family: sans-serif;
-	font-size: 1em;
+.divide{
+	width:60%;
+	height:3px;
+	background-color: white;
+	margin: auto;
+	margin-top: 20vh;
+	margin-bottom: 20vh;
 }
 
-.desc{
+.ruskin {
+	padding-top:15vh;
+	color:white;
+	font-size: 4vw;
+	font-family: "Larp";
+	line-height:1.3;
+	text-align:left;
+	padding-left: 10vw;
+	padding-right: 10vw;
+}
+
+.quote {
+	padding-top:15vh;
+	color:white;
+	font-size: 3.56vw;
+	font-family: "Larp";
+	line-height:1.3;
+	text-align:left;
+	padding-left: 10vw;
+	padding-right: 10vw;
+}
+
+.heading {
+	color: white;
+	font-size: 3vw;
+	font-family: "Larp";
+	line-height:1.3;
+	text-align:left;
+  padding-top:10vh;
+	padding-left: 10vw;
+	padding-right: 10vw;
+  padding-bottom: 10vh;
+  display: flex;
+}
+
+.heading div{
+  margin: auto;
+
+}
+
+.bio {
+	padding-top:;
+	color:white;
+	font-size: 1.2rem;
+  font-family: 'Inter', sans-serif;	line-height:1.8;
+	display: flex;
+	flex-flow:column;
+	padding-left: 20vw;
+	padding-right: 20vw;
+  text-align: left;
+  line-height: 2.2rem;
+}
+
+.blurb {
+	padding-top:;
+	color:#e0e0e0;
+	font-size: 0.8rem;
+  font-family: 'Inter', sans-serif;	line-height:1.8;
+	display: flex;
+	flex-flow:column;
+	padding-left: 20vw;
+	padding-right: 20vw;
+  text-align: left;
+  line-height: 1rem;
+}
+
+.blurb p{
+  margin:auto;
+}
+
+.sample {
+	padding-top:;
+	color:white;
+	font-size: 10vw;
+	font-family: "Larp";
+	line-height:1.8;
+	display: flex;
+	flex-flow:column;
+	padding-left: 15vw;
+	padding-right: 15vw;
+}
+
+.glyphset {
+	padding-top:;
+	color:white;
+	font-size: 8vw;
+	font-family: "Larp";
+	line-height:1.8;
+	display: flex;
+	flex-flow:column;
+	padding-left: 10vw;
+	padding-right: 10vw;
+}
+
+#left{
 	text-align: left;
-	font-family: sans-serif;
-	padding-top: 5vh;
 }
 
-#endpanel { /*For making the title panel shorter than the rest*/
-	min-height: 100vh;
-    width: 70vw;
-    margin: auto;
-    text-align: center;
-    position: relative;
-    /*outline: 10px solid hotpink;*/
+#right{
+	text-align: right;
 }
 
-#cursor{
-	cursor: crosshair;
+#copyright{
+  font-family: sans-serif;
+  color: white;
+  z-index: 100;
+  position:absolute;
+  width:99%;
+  padding:5;
+  margin:auto;
+
+}
+
+.fade-in {
+  animation: fadeIn 2s;
+}
+
+.fade-out {
+  animation: fadeOut 1s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
